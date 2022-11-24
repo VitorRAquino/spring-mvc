@@ -1,6 +1,7 @@
 package br.com.mvc.mudi.dto;
 
 import br.com.mvc.mudi.model.Pedido;
+import br.com.mvc.mudi.model.StatusPedido;
 
 import javax.validation.constraints.NotBlank;
 
@@ -12,7 +13,6 @@ public class RequisicaoNovoPedido {
     private String urlDoProduto;
     @NotBlank(message = "O campo da URL da imagem é obrigatório.")
     private String urlDaImagem;
-    @NotBlank
     private String descricao;
 
     public String getNomeProduto() {
@@ -53,6 +53,7 @@ public class RequisicaoNovoPedido {
         pedido.setNomeProduto(nomeProduto);
         pedido.setUrlDoProduto(urlDoProduto);
         pedido.setUrlDaImagem(urlDaImagem);
-        return null;
+        pedido.setStatus(StatusPedido.AGUARDANDO);
+        return pedido;
     }
 }
